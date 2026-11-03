@@ -1,0 +1,214 @@
+.m3-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-64);
+  padding-bottom: var(--space-32);
+}
+
+.m3-intro {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-20);
+}
+
+.m3-breadcrumb {
+  margin: 0;
+  text-transform: uppercase;
+  color: var(--violet);
+}
+
+.m3-breadcrumb a {
+  color: var(--violet);
+  text-decoration: none;
+}
+
+.m3-breadcrumb a:hover {
+  color: var(--accent);
+}
+
+.m3-breadcrumb a:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.m3-intro .h1 {
+  margin: 0;
+  text-wrap: balance;
+}
+
+.m3-intro .lead {
+  margin: 0;
+  max-width: 780px;
+  color: var(--ink-muted);
+}
+
+.m3-slides {
+  margin: 0;
+  color: var(--violet);
+}
+
+.m3-section-titles {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.m3-section-titles .eyebrow {
+  margin: 0;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.m3-section-titles .h2 {
+  margin: 0;
+}
+
+.m3-move {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+}
+
+.m3-move-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-24);
+  align-items: stretch;
+}
+
+.m3-config-panel {
+  flex: 1 1 380px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-20);
+}
+
+.m3-metrics-panel {
+  flex: 2 1 560px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-20);
+}
+
+.m3-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  margin: 0;
+  padding: 0;
+  border: none;
+  min-width: 0;
+}
+
+.m3-field-label {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.m3-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-12);
+}
+
+.m3-ham-chip {
+  font-size: 16px;
+  font-family: var(--font-sans);
+}
+
+.m3-n-chip {
+  font-family: var(--font-mono);
+  font-size: 17px;
+}
+
+.m3-field-help {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ink-muted);
+}
+
+.m3-lr-help {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ink-muted);
+}
+
+.m3-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-12);
+}
+
+.m3-chart-heading {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.m3-chart {
+  width: 100%;
+  height: auto;
+  display: block;
+  color: var(--ink-muted);
+}
+
+.m3-chart-plot {
+  fill: var(--bg);
+}
+
+.m3-chart-grid {
+  stroke: var(--border);
+  stroke-width: 1;
+}
+
+.m3-chart-tick {
+  fill: var(--ink-muted);
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+
+.m3-chart-curve {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 3;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.m3-chart-axis {
+  fill: var(--ink-muted);
+  font-family: var(--font-sans);
+  font-size: 14px;
+}
+
+.m3-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--space-12);
+}
+
+.m3-status {
+  margin: 0;
+  background: var(--bg);
+  border-radius: var(--radius-lg);
+  padding: 16px 18px;
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+.m3-check {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+}
+
+.m3-ideas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  gap: var(--space-20);
+}

@@ -24,7 +24,7 @@ describe('navigation and routes', () => {
     ['/', 'Entiende cómo un grafo guarda un estado cuántico'],
     ['/modulo-1', 'Lee un estado en el diagrama'],
     ['/modulo-2', '¿Qué estados caben en un diagrama?'],
-    ['/modulo-3', 'Módulo 3'],
+    ['/modulo-3', 'Entrena el diagrama para encontrar el estado base'],
     [
       '/paper',
       'Variational decision diagrams for quantum-inspired machine learning applications',
