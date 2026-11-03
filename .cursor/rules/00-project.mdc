@@ -1,0 +1,13 @@
+---
+description: Contexto, stack y límites del proyecto Diagramas de decisión
+alwaysApply: true
+---
+
+- El proyecto se llama `interactive-vqdds` (también el `name` de package.json). Node se gestiona con fnm (`.node-version`); los paquetes, con npm. No uses nvm ni cambies de gestor de paquetes.
+- Proyecto de solo frontend: Vite + React 18 + TypeScript estricto + HashRouter + Vitest. No crees backend ni llamadas a servidores propios.
+- Lee `AGENTS.md` y el paso actual de `docs/plan/PLAN.md` antes de proponer cambios.
+- Trabaja solo el paso que te pida el usuario. No adelantes pasos ni refactorices código ajeno al paso.
+- No instales dependencias que no estén en el plan aprobado; pregunta antes.
+- Cuando el usuario pida un plan, no escribas código hasta que lo apruebe.
+- Los textos de la interfaz salen de los prototipos de `docs/prototypes/` salvo indicación contraria. Si un texto contradice el sistema de diseño, avisa antes de cambiarlo.
+- Cierra cada paso ejecutando `npm run lint`, `npm run typecheck`, `npm run test` y `npm run build`, y reporta la salida real. No digas que algo pasa si no lo ejecutaste.

@@ -1,0 +1,13 @@
+---
+description: Uso obligatorio del sistema de diseño en componentes y estilos
+globs: src/**/*.tsx,src/**/*.css
+alwaysApply: false
+---
+
+- El sistema de diseño vive en `docs/design-system/`. `src/styles/tokens.css` y `src/styles/components.css` son copias exactas de `docs/design-system/tokens.css` y `docs/design-system/components/bundle.css`: no las edites a mano.
+- No escribas colores, tamaños de fuente, espaciados ni radios literales. Usa `var(--token)` y las clases `dd-*`.
+- Si falta un valor o una variante, no la inventes: propón primero el cambio en el sistema de diseño.
+- Cada componente de `src/components` reproduce el `preview.html` y sigue el `README.md` de su carpeta en `docs/design-system/components/`.
+- Un archivo por componente; sin librerías de UI.
+- Accesibilidad: todo control tiene nombre accesible, foco visible (anillo `accent` de 3px) y se opera con teclado. El color nunca es la única señal (los veredictos llevan texto).
+- Cifras con coma decimal; valores numéricos en la fuente mono.

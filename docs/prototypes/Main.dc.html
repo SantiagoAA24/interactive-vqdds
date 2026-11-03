@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Opción A · Laboratorio</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+body{margin:0;background:#14112B}
+a{color:#CFCAEA}
+a:hover{color:#F5B83D}
+</style>
+</helmet>
+<div style="background:#14112B;color:#F4F2FB;font-family:'IBM Plex Sans',Arial,sans-serif;display:flex;flex-direction:column">
+
+<header style="display:flex;justify-content:center;padding:0 32px">
+<nav style="width:100%;max-width:1200px;box-sizing:border-box;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px;padding:28px 0">
+<a href="#inicio" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:#F4F2FB;font-family:'Space Grotesk',Arial,sans-serif;font-weight:700;font-size:20px">
+<svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="7" r="5" fill="#211B47" stroke="#F5B83D" stroke-width="2.5"/><circle cx="7" cy="24" r="5" fill="#211B47" stroke="#9B87F5" stroke-width="2.5"/><circle cx="25" cy="24" r="5" fill="#211B47" stroke="#9B87F5" stroke-width="2.5"/></svg>
+<span>Diagramas de decisión</span>
+</a>
+<div style="display:flex;flex-wrap:wrap;gap:8px 32px;font-size:17px">
+<a href="#modulos" style="text-decoration:none">Módulos</a>
+<a href="#como-usar" style="text-decoration:none">Cómo usar</a>
+<a href="#glosario" style="text-decoration:none">Glosario</a>
+<a href="Paper.dc.html" style="text-decoration:none">Paper</a>
+</div>
+</nav>
+</header>
+
+<section id="inicio" style="display:flex;justify-content:center;padding:48px 32px 96px">
+<div style="width:100%;max-width:1200px;box-sizing:border-box;display:flex;flex-wrap:wrap;align-items:center;gap:48px">
+<div style="flex:1 1 480px;display:flex;flex-direction:column;gap:28px">
+<p style="margin:0;font-family:'JetBrains Mono',monospace;font-size:15px;letter-spacing:0.08em;text-transform:uppercase;color:#9B87F5">Recurso de la charla · Qiskit Fall Fest Colombia</p>
+<h1 style="margin:0;font-family:'Space Grotesk',Arial,sans-serif;font-weight:700;font-size:clamp(40px,5.6vw,72px);line-height:1.05;text-wrap:balance">Entiende cómo un grafo guarda un estado cuántico</h1>
+<p style="margin:0;max-width:560px;font-size:22px;line-height:1.5;color:#CFCAEA">Recorre caminos, mueve parámetros y entrena un diagrama de decisión variacional a tu propio ritmo. Todo corre en tu navegador.</p>
+<div style="display:flex;flex-wrap:wrap;gap:16px">
+<a href="Modulo-1.dc.html" style="display:inline-flex;align-items:center;min-height:52px;box-sizing:border-box;padding:0 28px;border-radius:12px;background:#F5B83D;color:#14112B;font-size:18px;font-weight:600;text-decoration:none">Empezar con el módulo 1</a>
+<a href="https://arxiv.org/abs/2502.04271" style="display:inline-flex;align-items:center;min-height:52px;box-sizing:border-box;padding:0 28px;border-radius:12px;border:2px solid #9B87F5;color:#F4F2FB;font-size:18px;font-weight:600;text-decoration:none">Leer el paper en arXiv</a>
+</div>
+</div>
+<div style="flex:1 1 400px;display:flex;justify-content:center">
+<svg viewBox="0 0 520 600" role="img" aria-label="Ilustración de un diagrama de decisión de cinco qubits con un camino resaltado desde la raíz hasta el nodo terminal" style="width:100%;max-width:480px;height:auto;display:block">
+<defs><radialGradient id="glowA" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#5B45D6" stop-opacity="0.45"/><stop offset="100%" stop-color="#5B45D6" stop-opacity="0"/></radialGradient></defs>
+<ellipse cx="260" cy="300" rx="250" ry="290" fill="url(#glowA)"/>
+<g stroke="#9B87F5" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.7">
+<line x1="260" y1="96" x2="140" y2="196"/>
+<line x1="260" y1="96" x2="380" y2="196"/>
+<path d="M140 196 Q 210 215 260 296"/>
+<path d="M380 196 Q 350 250 260 296"/>
+<path d="M380 196 Q 310 215 260 296"/>
+<line x1="260" y1="296" x2="140" y2="396"/>
+<path d="M140 396 Q 170 450 260 496"/>
+<path d="M140 396 Q 210 415 260 496"/>
+<path d="M380 396 Q 350 450 260 496"/>
+<path d="M260 496 Q 235 530 258 552"/>
+</g>
+<g stroke="#F5B83D" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<line x1="260" y1="40" x2="260" y2="96"/>
+<line x1="260" y1="96" x2="140" y2="196"/>
+<path d="M140 196 Q 170 250 260 296"/>
+<line x1="260" y1="296" x2="380" y2="396"/>
+<path d="M380 396 Q 310 415 260 496"/>
+<path d="M260 496 Q 285 530 262 552"/>
+</g>
+<g fill="#211B47" stroke-width="4">
+<circle cx="260" cy="96" r="28" stroke="#F5B83D"/>
+<circle cx="140" cy="196" r="28" stroke="#F5B83D"/>
+<circle cx="380" cy="196" r="28" stroke="#9B87F5"/>
+<circle cx="260" cy="296" r="28" stroke="#F5B83D"/>
+<circle cx="140" cy="396" r="28" stroke="#9B87F5"/>
+<circle cx="380" cy="396" r="28" stroke="#F5B83D"/>
+<circle cx="260" cy="496" r="28" stroke="#F5B83D"/>
+</g>
+<circle cx="260" cy="34" r="10" fill="#F5B83D"/>
+<rect x="240" y="552" width="40" height="40" rx="8" fill="#F5B83D"/>
+</svg>
+</div>
+</div>
+</section>
+
+<section style="display:flex;justify-content:center;padding:0 32px">
+<div style="width:100%;max-width:1200px;box-sizing:border-box;background:#5B45D6;border-radius:28px;padding:56px;display:flex;flex-wrap:wrap;align-items:center;gap:24px 56px">
+<p style="flex:0 0 auto;margin:0;font-family:'JetBrains Mono',monospace;font-size:15px;letter-spacing:0.08em;text-transform:uppercase;color:#E4DEFF">Pregunta guía</p>
+<h2 style="flex:1 1 480px;margin:0;font-family:'Space Grotesk',Arial,sans-serif;font-weight:600;font-size:clamp(26px,3.2vw,42px);line-height:1.15;text-wrap:balance">¿Podemos entrenar una representación de estados cuánticos basada en diagramas de decisión sin caer en barren plateaus?</h2>
+</div>
+</section>
+
+<section id="modulos" style="display:flex;justify-content:center;padding:120px 32px 0">
+<div style="width:100%;max-width:1200px;box-sizing:border-box;display:flex;flex-direction:column;gap:48px">
+<div style="display:flex;flex-direction:column;gap:12px;max-width:680px">
+<h2 style="margin:0;font-family:'Space Grotesk',Arial,sans-serif;font-weight:700;font-size:clamp(32px,4vw,52px);line-height:1.1">Tres módulos, a tu ritmo</h2>
+<p style="margin:0;font-size:20px;line-height:1.5;color:#CFCAEA">Cada uno parte de una pregunta. Intenta responderla antes de mover nada.</p>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr));gap:24px">
+
+<article style="display:flex;flex-direction:column;gap:20px;background:#211B47;border:1px solid #3A3270;border-radius:24px;padding:32px">
+<div style="background:#1A1639;border-radius:16px;padding:16px;display:flex;justify-content:center">
+<svg viewBox="0 0 280 150" role="img" aria-label="Pequeño diagrama de decisión con un camino resaltado" style="width:100%;max-width:280px;height:auto;display:block">
+<g stroke="#9B87F5" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.7">
+<line x1="140" y1="40" x2="200" y2="86"/>
+<path d="M200 86 Q 190 108 150 120"/>
+<path d="M200 86 Q 170 90 150 120"/>
+</g>
+<g stroke="#F5B83D" stroke-width="5" fill="none" stroke-linecap="round">
+<line x1="140" y1="12" x2="140" y2="40"/>
+<line x1="140" y1="40" x2="80" y2="86"/>
+<path d="M80 86 Q 90 108 130 120"/>
+</g>
+<g fill="#211B47" stroke-width="3.5">
+<circle cx="140" cy="40" r="14" stroke="#F5B83D"/>
+<circle cx="80" cy="86" r="14" stroke="#F5B83D"/>
+<circle cx="200" cy="86" r="14" stroke="#9B87F5"/>
+</g>
+<circle cx="140" cy="10" r="6" fill="#F5B83D"/>
+<rect x="128" y="120" width="24" height="22" rx="5" fill="#F5B83D"/>
+</svg>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="margin:0;font-family:'JetBrains Mono',monospace;font-size:16px;color:#F5B83D">01</p>
+<h3 style="margin:0;font-family:'Space Grotesk',Arial,sans-serif;font-weight:600;font-size:28px;line-height:1.2">Lee un estado en el diagrama</h3>
+<p style="margin:0;font-size:17px;line-height:1.55;color:#CFCAEA">Recorre el camino de una cadena de bits y comprueba que la amplitud es el producto de las aristas. Mueve r, ω y φ y mira cómo cambian las probabilidades.</p>
+</div>
+<p style="margin:0;font-size:17px;line-height:1.5;font-style:italic;color:#F4F2FB;border-top:1px solid #3A3270;padding-top:20px">Si cambias r en un nodo, ¿qué amplitudes se modifican?</p>
+<a href="Modulo-1.dc.html" style="margin-top:auto;font-size:17px;font-weight:600;color:#F5B83D;text-decoration:none">Abrir módulo 1 →</a>
+</article>
+
+<article style="display:flex;flex-direction:column;gap:20px;background:#211B47;border:1px solid #3A3270;border-radius:24px;padding:32px">
+<div style="background:#1A1639;border-radius:16px;padding:16px;display:flex;justify-content:center">
+<svg viewBox="0 0 280 150" role="img" aria-label="Barras de un estado objetivo en ámbar y de su aproximación en violeta" style="width:100%;max-width:280px;height:auto;display:block">
+<line x1="14" y1="132" x2="266" y2="132" stroke="#3A3270" stroke-width="2"/>
+<g fill="#F5B83D">
+<rect x="20" y="62" width="11" height="70" rx="2"/><rect x="51" y="92" width="11" height="40" rx="2"/><rect x="82" y="42" width="11" height="90" rx="2"/><rect x="113" y="102" width="11" height="30" rx="2"/><rect x="144" y="72" width="11" height="60" rx="2"/><rect x="175" y="32" width="11" height="100" rx="2"/><rect x="206" y="112" width="11" height="20" rx="2"/><rect x="237" y="82" width="11" height="50" rx="2"/>
+</g>
+<g fill="#9B87F5">
+<rect x="33" y="70" width="11" height="62" rx="2"/><rect x="64" y="88" width="11" height="44" rx="2"/><rect x="95" y="52" width="11" height="80" rx="2"/><rect x="126" y="96" width="11" height="36" rx="2"/><rect x="157" y="76" width="11" height="56" rx="2"/><rect x="188" y="46" width="11" height="86" rx="2"/><rect x="219" y="104" width="11" height="28" rx="2"/><rect x="250" y="86" width="11" height="46" rx="2"/>
+</g>
+</svg>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="margin:0;font-family:'JetBrains Mono',monospace;font-size:16px;color:#F5B83D">02</p>
+<h3 style="margin:0;font-family:'Space Grotesk',Arial,sans-serif;font-weight:600;font-size:28px;line-height:1.2">¿Qué estados caben?</h3>
+<p style="margin:0;font-size:17px;line-height:1.55;color:#CFCAEA">Elige un estado objetivo y compara su diagrama exacto con lo que logra representar el ansatz Accordion con pocos parámetros.</p>
+</div>
+<p style="margin:0;font-size:17px;line-height:1.5;font-style:italic;color:#F4F2FB;border-top:1px solid #3A3270;padding-top:20px">¿Cuáles estados representa el Accordion y cuáles solo aproxima?</p>
+<a href="Modulo-2.dc.html" style="margin-top:auto;font-size:17px;font-weight:600;color:#F5B83D;text-decoration:none">Abrir módulo 2 →</a>
+</article>
+
+<article style="display:flex;flex-direction:column;gap:20px;background:#211B47;border:1px solid #3A3270;border-radius:24px;padding:32px">
+<div style="background:#1A1639;border-radius:16px;padding:16px;display:flex;justify-content:center">
+<svg viewBox="0 0 280 150" role="img" aria-label="Curva de energía que baja hacia una línea punteada que marca la energía del estado base" style="width:100%;max-width:280px;height:auto;display:block">
+<line x1="16" y1="122" x2="264" y2="122" stroke="#F5B83D" stroke-width="3" stroke-dasharray="6 6"/>
+<path d="M 16 28 C 50 30, 66 98, 112 110 S 200 120, 264 124" fill="none" stroke="#9B87F5" stroke-width="5" stroke-linecap="round"/>
+<circle cx="16" cy="28" r="6" fill="#9B87F5"/>
+</svg>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="margin:0;font-family:'JetBrains Mono',monospace;font-size:16px;color:#F5B83D">03</p>
+<h3 style="margin:0;font-family:'Space Grotesk',Arial,sans-serif;font-weight:600;font-size:28px;line-height:1.2">Entrena un diagrama</h3>
+<p style="margin:0;font-size:17px;line-height:1.55;color:#CFCAEA">Escoge un Hamiltoniano, ajusta la tasa de aprendizaje y observa cómo la energía baja hacia la del estado base.</p>
+</div>
+<p style="margin:0;font-size:17px;line-height:1.5;font-style:italic;color:#F4F2FB;border-top:1px solid #3A3270;padding-top:20px">¿La energía siempre llega hasta E₀?</p>
+<a href="Modulo-3.dc.html" style="margin-top:auto;font-size:17px;font-weight:600;color:#F5B83D;text-decoration:none">Abrir módulo 3 →</a>
+</article>
+
+</div>
+</div>
+</section>
+
+<section id="como-usar" style="display:flex;justify-content:center;padding:120px 32px 0">
+<div style="width:100%;max-width:1200px;box-sizing:border-box;display:flex;flex-direction:column;gap:48px">
+<h2 style="margin:0;font-family:'Space Grotesk',Arial,sans-serif;font-weight:700;font-size:clamp(32px,4vw,52px);line-height:1.1">Predice, mueve, comprueba</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:48px">
+<div style="display:flex;flex-direction:column;gap:12px;border-top:3px solid #F5B83D;padding-top:24px">
+<p style="margin:0;font-family:'Space Grotesk',Arial,sans-serif;font-weight:700;font-size:56px;line-height:1;color:#F5B83D">1</p>
+<h3 style="margin:0;font-family:'Space Grotesk',Arial,sans-serif;font-weight:600;font-size:26px">Predice</h3>
+<p style="margin:0;font-size:18px;line-height:1.55;color:#CFCAEA">Antes de tocar nada, piensa qué crees que va a pasar.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;border-top:3px solid #9B87F5;padding-top:24px">
+<p style="margin:0;font-family:'Space Grotesk',Arial,sans-serif;font-weight:700;font-size:56px;line-height:1;color:#9B87F5">2</p>
+<h3 style="margin:0;font-family:'Space Grotesk',Arial,sans-serif;font-weight:600;font-size:26px">Mueve</h3>
+<p style="margin:0;font-size:18px;line-height:1.55;color:#CFCAEA">Cambia un parámetro, un estado o una tasa de aprendizaje.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;border-top:3px solid #F5B83D;padding-top:24px">
+<p style="margin:0;font-family:'Space Grotesk',Arial,sans-serif;font-weight:700;font-size:56px;line-height:1;color:#F5B83D">3</p>
+<h3 style="margin:0;font-family:'Space Grotesk',Arial,sans-serif;font-weight:600;font-size:26px">Comprueba</h3>
+<p style="margin:0;font-size:18px;line-height:1.55;color:#CFCAEA">Compara con tu predicción y lee la explicación corta que acompaña cada resultado.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="glosario" style="display:flex;justify-content:center;padding:120px 32px 0">
+<div style="width:100%;max-width:1200px;box-sizing:border-box;display:flex;flex-direction:column;gap:48px">
+<div style="display:flex;flex-direction:column;gap:12px;max-width:680px">
+<h2 style="margin:0;font-family:'Space Grotesk',Arial,sans-serif;font-weight:700;font-size:clamp(32px,4vw,52px);line-height:1.1">Antes de empezar</h2>
+<p style="margin:0;font-size:20px;line-height:1.5;color:#CFCAEA">Cuatro palabras que aparecen en todos los módulos.</p>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:20px">
+<div style="display:flex;flex-direction:column;gap:10px;background:#211B47;border:1px solid #3A3270;border-radius:20px;padding:28px">
+<p style="margin:0;font-family:'JetBrains Mono',monospace;font-size:17px;color:#F5B83D">Amplitud</p>
+<p style="margin:0;font-size:17px;line-height:1.55;color:#CFCAEA">Número complejo asociado a cada cadena de bits. Su módulo al cuadrado es la probabilidad de medirla.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;background:#211B47;border:1px solid #3A3270;border-radius:20px;padding:28px">
+<p style="margin:0;font-family:'JetBrains Mono',monospace;font-size:17px;color:#F5B83D">Ansatz</p>
+<p style="margin:0;font-size:17px;line-height:1.55;color:#CFCAEA">Forma que fijamos de antemano para el estado de prueba, con parámetros que se ajustan.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;background:#211B47;border:1px solid #3A3270;border-radius:20px;padding:28px">
+<p style="margin:0;font-family:'JetBrains Mono',monospace;font-size:17px;color:#F5B83D">Hamiltoniano</p>
+<p style="margin:0;font-size:17px;line-height:1.55;color:#CFCAEA">Operador cuya energía más baja, la del estado base, queremos encontrar.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;background:#211B47;border:1px solid #3A3270;border-radius:20px;padding:28px">
+<p style="margin:0;font-family:'JetBrains Mono',monospace;font-size:17px;color:#F5B83D">Barren plateau</p>
+<p style="margin:0;font-size:17px;line-height:1.55;color:#CFCAEA">Región plana de la función de costo: el gradiente casi desaparece y el optimizador no avanza.</p>
+</div>
+</div>
+</div>
+</section>
+
+<footer style="display:flex;justify-content:center;padding:120px 32px 64px">
+<div style="width:100%;max-width:1200px;box-sizing:border-box;border-top:1px solid #3A3270;padding-top:32px;display:flex;flex-wrap:wrap;gap:24px 64px">
+<p style="flex:1 1 420px;margin:0;font-size:16px;line-height:1.6;color:#CFCAEA">Basado en Acevedo-Mancera, Vargas-Calderón y Vinck-Posada, <i>Variational decision diagrams for quantum-inspired machine learning applications</i>, <a href="https://arxiv.org/abs/2502.04271" style="color:#F5B83D">arXiv:2502.04271</a>.</p>
+<p style="flex:1 1 320px;margin:0;font-size:16px;line-height:1.6;color:#CFCAEA">Material didáctico: algunos ejemplos de esta página son ilustrativos y no reproducen resultados del paper.</p>
+</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3400}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

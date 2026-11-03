@@ -1,0 +1,20 @@
+<!-- @dsCard height=288 subtitle="Portada" -->
+<!doctype html><html lang="es"><head><meta charset="utf-8"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=IBM+Plex+Sans:wght@400&display=swap"><style>
+html,body{margin:0}body{background:var(--bg)}
+.c{position:relative;width:960px;height:288px;background:var(--bg);overflow:hidden}
+svg{position:absolute;left:0;top:0}
+.b1{fill:var(--band)}.b2{fill:var(--accent)}.b3{fill:var(--violet)}.b4{fill:var(--option)}
+.n{fill:var(--bg)}.e{stroke:var(--bg);stroke-width:3;fill:none;stroke-linecap:round}
+h1{position:absolute;left:48px;top:128px;margin:0;font:700 64px/.95 var(--font-display);color:var(--ink);white-space:nowrap}
+p{position:absolute;left:48px;top:212px;margin:0;font:400 14px/1.4 var(--font-sans);color:var(--ink-muted)}
+</style></head><body><div class="c">
+<!-- bloques: band 320, accent 180, violet 240, option 220 (franja superior de 104px, esquinas inferiores radius-lg 16) ; disposición: franja de bandas desiguales al ancho completo.
+patrón: motivo literal, un diagrama Accordion 1-2-1-2 de discos y aristas en color de fondo, porque el sistema gira en torno a diagramas de decisión.
+pasos y radios: discos de r 14 (mitad de la altura de 28), aristas de 3px, franja 104 = espacio 96 + 8; esquinas radius-lg 16. -->
+<svg width="960" height="104" viewBox="0 0 960 104" aria-hidden="true">
+<rect class="b1" x="0" y="0" width="320" height="104"/><rect class="b2" x="320" y="0" width="180" height="104"/><rect class="b3" x="500" y="0" width="240" height="104"/><rect class="b4" x="740" y="0" width="220" height="104"/>
+<g class="e"><path d="M120 52L300 28M120 52L300 76M300 28L480 52M300 76L480 52M480 52L660 28M480 52L660 76M660 28L840 52M660 76L840 52"/></g>
+<g class="n"><circle cx="120" cy="52" r="14"/><circle cx="300" cy="28" r="14"/><circle cx="300" cy="76" r="14"/><circle cx="480" cy="52" r="14"/><circle cx="660" cy="28" r="14"/><circle cx="660" cy="76" r="14"/><circle cx="840" cy="52" r="14"/></g>
+</svg>
+<h1>Diagramas de decisión</h1><p>Predice, mueve, comprueba.</p>
+</div></body></html>

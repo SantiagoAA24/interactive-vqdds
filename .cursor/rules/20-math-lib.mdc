@@ -1,0 +1,12 @@
+---
+description: Reglas para la matemática de los módulos (funciones puras y pruebas)
+globs: src/lib/**,src/workers/**
+alwaysApply: false
+---
+
+- `src/lib/dd/` contiene funciones puras y tipadas. No importes React ni accedas al DOM.
+- Nada de `Math.random` sin semilla: el generador recibe una semilla.
+- Escribe primero las pruebas con los valores de `docs/reference/test-values.md` y luego el código.
+- Si una prueba falla, arregla el código. No cambies un valor esperado sin explicar por qué y esperar confirmación.
+- La lógica de referencia está en el bloque `<script type="text/x-dc">` de cada archivo de `docs/prototypes/`. Porta sin reescribir el algoritmo; los resultados deben coincidir.
+- El entrenamiento del módulo 3 corre en un Web Worker, nunca en el hilo principal.

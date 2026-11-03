@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Módulo 2 · Qué estados caben</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+body{margin:0;background:#14112B}
+a{color:#CFCAEA}
+a:hover{color:#F5B83D}
+button{font-family:inherit}
+</style>
+</helmet>
+<div style="background:#14112B;color:#F4F2FB;font-family:'IBM Plex Sans',Arial,sans-serif;display:flex;flex-direction:column">
+
+<header style="display:flex;justify-content:center;padding:0 32px">
+<nav style="width:100%;max-width:1200px;box-sizing:border-box;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px;padding:28px 0">
+<a href="Main.dc.html" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:#F4F2FB;font-family:'Space Grotesk',Arial,sans-serif;font-weight:700;font-size:20px">
+<svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="7" r="5" fill="#211B47" stroke="#F5B83D" stroke-width="2.5"/><circle cx="7" cy="24" r="5" fill="#211B47" stroke="#9B87F5" stroke-width="2.5"/><circle cx="25" cy="24" r="5" fill="#211B47" stroke="#9B87F5" stroke-width="2.5"/></svg>
+<span>Diagramas de decisión</span>
+</a>
+<div style="display:flex;flex-wrap:wrap;gap:8px 28px;font-size:17px">
+<a href="Main.dc.html" style="text-decoration:none">Inicio</a>
+<a href="Modulo-1.dc.html" style="text-decoration:none">Módulo 1</a>
+<a href="Modulo-2.dc.html" style="text-decoration:underline;color:#F5B83D;font-weight:600">Módulo 2</a>
+<a href="Modulo-3.dc.html" style="text-decoration:none">Módulo 3</a>
+<a href="Paper.dc.html" style="text-decoration:none">Paper</a>
+</div>
+</nav>
+</header>
+
+<section style="display:flex;justify-content:center;padding:32px 32px 0">
+<div style="width:100%;max-width:1200px;box-sizing:border-box;display:flex;flex-direction:column;gap:20px">
+<p style="margin:0;font-family:'JetBrains Mono',monospace;font-size:15px;letter-spacing:0.08em;text-transform:uppercase;color:#9B87F5"><a href="Main.dc.html" style="color:#9B87F5">Inicio</a> / Módulo 2 de 3</p>
+<h1 style="margin:0;font-family:'Space Grotesk',Arial,sans-serif;font-weight:700;font-size:clamp(36px,4.6vw,60px);line-height:1.08;text-wrap:balance">¿Qué estados caben en un diagrama?</h1>
+<p style="margin:0;max-width:780px;font-size:21px;line-height:1.55;color:#CFCAEA">Un diagrama exacto necesita más nodos cuanto más entrelazado está el estado. El ansatz Accordion fija 6 nodos para 4 qubits: eso basta para unos estados y deja fuera a otros.</p>
+<p style="margin:0;font-size:16px;color:#9B87F5">Conecta con las diapositivas 11 a 13 de la charla.</p>
+</div>
+</section>
+
+<section style="display:flex;justify-content:center;padding:48px 32px 0">
+<div style="width:100%;max-width:1200px;box-sizing:border-box;background:#5B45D6;border-radius:28px;padding:40px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="margin:0;font-family:'JetBrains Mono',monospace;font-size:15px;letter-spacing:0.08em;text-transform:uppercase;color:#E4DEFF">1 · Predice</p>
+<h2 style="margin:0;font-family:'Space Grotesk',Arial,sans-serif;font-weight:600;font-size:clamp(24px,2.8vw,34px);line-height:1.2">El GHZ de 4 qubits vale |0000⟩ y |1111⟩ con el mismo peso. ¿Qué fidelidad alcanza el mejor Accordion?</h2>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:16px">
+<sc-for list="{{ options }}" as="o" hint-placeholder-count="3">
+<button onClick="{{ o.pick }}" style="text-align:left;cursor:pointer;min-height:64px;padding:16px 20px;border-radius:16px;font-size:18px;line-height:1.4;color:#F4F2FB;border: 3px solid {{ o.border }};background: {{ o.bg }}">{{ o.text }}</button>
+</sc-for>
+</div>
+<sc-if value="{{ answered }}" hint-placeholder-val="{{ false }}">
+<p style="margin:0;background:#14112B;border-radius:16px;padding:20px 24px;font-size:18px;line-height:1.55"><b>{{ verdict }}</b> {{ feedback }}</p>
+</sc-if>
+</div>
+</section>
+
+<section style="display:flex;justify-content:center;padding:64px 32px 0">
+<div style="width:100%;max-width:1200px;box-sizing:border-box;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="margin:0;font-family:'JetBrains Mono',monospace;font-size:15px;letter-spacing:0.08em;text-transform:uppercase;color:#F5B83D">2 · Mueve</p>
+<h2 style="margin:0;font-family:'Space Grotesk',Arial,sans-serif;font-weight:700;font-size:clamp(28px,3.4vw,42px);line-height:1.1">Elige un estado de 4 qubits</h2>
+</div>
+
+<div style="display:flex;flex-wrap:wrap;gap:12px">
+<sc-for list="{{ presetButtons }}" as="b" hint-placeholder-count="6">
+<button onClick="{{ b.pick }}" style="cursor:pointer;min-height:48px;padding:0 20px;border-radius:12px;font-size:17px;font-weight:600;color:#F4F2FB;border: 2px solid {{ b.border }};background: {{ b.bg }}">{{ b.name }}</button>
+</sc-for>
+</div>
+
+<div style="background:#211B47;border:1px solid #3A3270;border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:16px">
+<p style="margin:0;font-size:19px;line-height:1.5"><b style="color:#F5B83D">{{ pName }}.</b> <span style="color:#CFCAEA">{{ pDesc }}</span></p>
+<sc-if value="{{ showMix }}" hint-placeholder-val="{{ false }}">
+<div style="display:flex;flex-direction:column;gap:6px;max-width:640px">
+<label for="sl-mix" style="display:flex;justify-content:space-between;font-size:17px"><span>Del producto (0) al GHZ (1)</span><span style="font-family:'JetBrains Mono',monospace;color:#F5B83D">{{ mixText }}</span></label>
+<input id="sl-mix" type="range" min="0" max="1" step="0.01" value="{{ mixVal }}" onChange="{{ setMix }}" style="width:100%;accent-color:#F5B83D">
+</div>
+</sc-if>
+</div>
+
+<div style="display:flex;flex-wrap:wrap;gap:24px;align-items:stretch">
+
+<div style="flex:1 1 480px;display:flex;flex-direction:column;gap:18px;background:#211B47;border:1px solid #3A3270;border-radius:24px;padding:28px">
+<p style="margin:0;font-size:18px;font-weight:600">Nodos por nivel</p>
+<div style="display:flex;flex-direction:column;gap:12px">
+<div style="display:grid;grid-template-columns:48px 1fr 1fr;gap:12px;font-size:15px;color:#CFCAEA">
+<span></span><span>Diagrama exacto</span><span>Accordion</span>
+</div>
+<sc-for list="{{ levels }}" as="lv" hint-placeholder-count="4">
+<div style="display:grid;grid-template-columns:48px 1fr 1fr;gap:12px;align-items:center">
+<span style="font-family:'JetBrains Mono',monospace;font-size:17px;color:#CFCAEA">{{ lv.name }}</span>
+<div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center">
+<sc-for list="{{ lv.exact }}" as="d" hint-placeholder-count="2">
+<span style="width:22px;height:22px;border-radius:11px;box-sizing:border-box;border: 3px solid {{ lv.color }};background:#14112B"></span>
+</sc-for>
+<span style="margin-left:8px;font-family:'JetBrains Mono',monospace;font-size:16px;color:#F4F2FB">{{ lv.nExact }}</span>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center">
+<sc-for list="{{ lv.acc }}" as="d" hint-placeholder-count="2">
+<span style="width:22px;height:22px;border-radius:11px;box-sizing:border-box;border:3px solid #9B87F5;background:#14112B"></span>
+</sc-for>
+<span style="margin-left:8px;font-family:'JetBrains Mono',monospace;font-size:16px;color:#F4F2FB">{{ lv.nAcc }}</span>
+</div>
+</div>
+</sc-for>
+</div>
+<p style="margin:0;font-family:'JetBrains Mono',monospace;font-size:17px;line-height:1.5;color:#F5B83D">Exacto: {{ totalExact }} nodos · Accordion: 6 nodos</p>
+<p style="margin:0;font-size:15px;line-height:1.5;color:#CFCAEA">Un nodo cuenta una vez por cada sub-vector distinto, salvo un factor global. Los anillos ámbar marcan niveles donde el exacto necesita más nodos que el Accordion.</p>
+</div>
+
+<div style="flex:1 1 360px;display:flex;flex-direction:column;gap:18px;background:#211B47;border:1px solid #F5B83D;border-radius:24px;padding:28px;justify-content:center">
+<p style="margin:0;font-size:18px;font-weight:600">Mejor aproximación con Accordion</p>
+<p style="margin:0;font-family:'Space Grotesk',Arial,sans-serif;font-weight:700;font-size:clamp(48px,6vw,72px);line-height:1;color:#F5B83D">{{ fidText }}</p>
+<p style="margin:0;font-size:18px;line-height:1.5">fidelidad con el estado elegido</p>
+<div style="height:16px;border-radius:8px;background:#14112B"><div style="height:16px;border-radius:8px;background:#F5B83D;width: {{ fidBar }}"></div></div>
+<p style="margin:0;background:#14112B;border-radius:12px;padding:14px 16px;font-size:17px;line-height:1.5">{{ fitMsg }}</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<section style="display:flex;justify-content:center;padding:64px 32px 0">
+<div style="width:100%;max-width:1200px;box-sizing:border-box;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="margin:0;font-family:'JetBrains Mono',monospace;font-size:15px;letter-spacing:0.08em;text-transform:uppercase;color:#F5B83D">3 · Comprueba</p>
+<h2 style="margin:0;font-family:'Space Grotesk',Arial,sans-serif;font-weight:700;font-size:clamp(28px,3.4vw,42px);line-height:1.1">Estado real frente a aproximación</h2>
+</div>
+<div style="background:#211B47;border:1px solid #3A3270;border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:8px">
+<div style="display:flex;flex-wrap:wrap;gap:20px;font-size:16px;color:#CFCAEA">
+<span><span style="display:inline-block;width:14px;height:14px;border-radius:3px;background:#F5B83D;vertical-align:-2px"></span> Estado elegido</span>
+<span><span style="display:inline-block;width:14px;height:14px;border-radius:3px;background:#9B87F5;vertical-align:-2px"></span> Mejor Accordion</span>
+</div>
+<sc-for list="{{ rows }}" as="r" hint-placeholder-count="16">
+<div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px">
+<span style="flex:0 0 76px;font-family:'JetBrains Mono',monospace;font-size:16px;color:#F4F2FB">|{{ r.lab }}⟩</span>
+<div style="flex:1 1 260px;display:flex;flex-direction:column;gap:3px">
+<div style="height:8px;border-radius:4px;background:#14112B"><div style="height:8px;border-radius:4px;background:#F5B83D;width: {{ r.tw }}"></div></div>
+<div style="height:8px;border-radius:4px;background:#14112B"><div style="height:8px;border-radius:4px;background:#9B87F5;width: {{ r.aw }}"></div></div>
+</div>
+<span style="flex:0 0 150px;text-align:right;font-family:'JetBrains Mono',monospace;font-size:15px;color:#CFCAEA">{{ r.tp }} · {{ r.ap }}</span>
+</div>
+</sc-for>
+</div>
+
+<div style="background:#211B47;border:1px solid #3A3270;border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:12px">
+<p style="margin:0;font-size:18px;font-weight:600">Todos los estados de un vistazo</p>
+<sc-for list="{{ table }}" as="t" hint-placeholder-count="6">
+<div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px;border-radius:12px;padding:10px 14px;background: {{ t.bg }}">
+<span style="flex:1 1 220px;font-size:17px">{{ t.name }}</span>
+<span style="flex:0 0 150px;font-family:'JetBrains Mono',monospace;font-size:16px;color:#CFCAEA">{{ t.nodes }} nodos</span>
+<span style="flex:0 0 150px;font-family:'JetBrains Mono',monospace;font-size:16px;color:#F5B83D">F = {{ t.fid }}</span>
+</div>
+</sc-for>
+</div>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:20px">
+<div style="background:#211B47;border:1px solid #3A3270;border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:8px">
+<h3 style="margin:0;font-family:'Space Grotesk',Arial,sans-serif;font-weight:600;font-size:22px;color:#F5B83D">Pocos nodos, estado con estructura</h3>
+<p style="margin:0;font-size:17px;line-height:1.55;color:#CFCAEA">El producto cabe con 4 nodos y Bell⊗Bell con 6. El estado tiene estructura y el diagrama la aprovecha.</p>
+</div>
+<div style="background:#211B47;border:1px solid #3A3270;border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:8px">
+<h3 style="margin:0;font-family:'Space Grotesk',Arial,sans-serif;font-weight:600;font-size:22px;color:#F5B83D">El cuello de botella es un nodo</h3>
+<p style="margin:0;font-size:17px;line-height:1.55;color:#CFCAEA">En el Accordion hay niveles con un solo nodo. Ahí el estado se parte en bloques de dos qubits, y el entrelazamiento entre bloques se pierde.</p>
+</div>
+<div style="background:#211B47;border:1px solid #3A3270;border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:8px">
+<h3 style="margin:0;font-family:'Space Grotesk',Arial,sans-serif;font-weight:600;font-size:22px;color:#F5B83D">Menos nodos, parámetros más fáciles</h3>
+<p style="margin:0;font-size:17px;line-height:1.55;color:#CFCAEA">Restringir el diagrama reduce los parámetros. A cambio, el estado que buscas debe parecerse a algo que cabe. Lo pruebas en el módulo 3.</p>
+</div>
+</div>
+</div>
+</section>
+
+<footer style="display:flex;justify-content:center;padding:96px 32px 64px">
+<div style="width:100%;max-width:1200px;box-sizing:border-box;border-top:1px solid #3A3270;padding-top:32px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px 32px">
+<a href="Modulo-1.dc.html" style="font-size:18px;font-weight:600;text-decoration:none">← Módulo 1</a>
+<p style="flex:1 1 360px;margin:0;font-size:15px;line-height:1.6;color:#CFCAEA;text-align:center">Material didáctico: el conteo de nodos y la fidelidad son cálculos exactos sobre estos ejemplos, no resultados del paper. Aquí se usan amplitudes reales.</p>
+<a href="Modulo-3.dc.html" style="font-size:18px;font-weight:600;color:#F5B83D;text-decoration:none">Módulo 3 →</a>
+</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3300}}'>
+class Component extends DCLogic {
+constructor(props) {
+super(props);
+this.state = { preset: 'ghz', mix: 0.5, pick: null };
+}
+presets() {
+return [
+{ key: 'prod', name: 'Producto', desc: 'Cuatro qubits en |+⟩, sin ningún entrelazamiento.' },
+{ key: 'bb', name: 'Bell ⊗ Bell', desc: 'Dos pares de Bell: qubits 1-2 y 3-4. Entrelazamiento solo dentro de cada par.' },
+{ key: 'b23', name: 'Bell en 2-3', desc: 'Los qubits 2 y 3 forman un par de Bell; el 1 y el 4 quedan libres. El par cruza la frontera entre bloques.' },
+{ key: 'ghz', name: 'GHZ', desc: '|0000⟩ y |1111⟩ con el mismo peso.' },
+{ key: 'w', name: 'W', desc: 'Una sola excitación repartida entre los cuatro qubits.' },
+{ key: 'mix', name: 'Producto ↔ GHZ', desc: 'Una mezcla continua entre el estado producto y el GHZ; muévela con el control.' },
+{ key: 'rnd', name: 'Estado genérico', desc: 'Amplitudes fijas sin estructura especial: cada qubit está entrelazado con los demás.' }
+];
+}
+vec(key, mix) {
+const v = new Array(16).fill(0);
+if (key === 'prod') v.fill(0.25);
+else if (key === 'bb') [0, 3, 12, 15].forEach(i => v[i] = 0.5);
+else if (key === 'b23') { for (let i = 0; i < 16; i++) { const b2 = (i >> 2) & 1, b3 = (i >> 1) & 1; if (b2 === b3) v[i] = 1 / Math.sqrt(8); } }
+else if (key === 'ghz') { v[0] = v[15] = 1 / Math.SQRT2; }
+else if (key === 'w') [8, 4, 2, 1].forEach(i => v[i] = 0.5);
+else if (key === 'mix') {
+const t = mix * Math.PI / 2, c = Math.cos(t), s = Math.sin(t);
+for (let i = 0; i < 16; i++) v[i] = c * 0.25;
+v[0] += s / Math.SQRT2; v[15] += s / Math.SQRT2;
+}
+else {
+const r = [0.31, -0.12, 0.44, 0.05, -0.27, 0.38, 0.09, -0.33, 0.21, 0.15, -0.41, 0.28, 0.07, -0.19, 0.36, 0.24];
+for (let i = 0; i < 16; i++) v[i] = r[i];
+}
+const n = Math.sqrt(v.reduce((a, x) => a + x * x, 0));
+return v.map(x => x / n);
+}
+levelCounts(v) {
+const out = [];
+for (let L = 1; L <= 4; L++) {
+const len = 1 << (5 - L), reps = [];
+for (let p = 0; p < (1 << (L - 1)); p++) {
+const s = v.slice(p * len, (p + 1) * len);
+const ns = s.reduce((a, x) => a + x * x, 0);
+if (ns < 1e-12) continue;
+let found = false;
+for (const r of reps) {
+let d = 0; for (let i = 0; i < len; i++) d += s[i] * r.s[i];
+if (d * d >= (1 - 1e-9) * ns * r.n) { found = true; break; }
+}
+if (!found) reps.push({ s: s, n: ns });
+}
+out.push(reps.length);
+}
+return out;
+}
+accordion(v) {
+const M = [0, 1, 2, 3].map(i => [0, 1, 2, 3].map(j => v[i * 4 + j]));
+const G = [0, 1, 2, 3].map(a => [0, 1, 2, 3].map(b => M.reduce((s, row) => s + row[a] * row[b], 0)));
+let w = [0.9, 0.5, 0.3, 0.7];
+for (let it = 0; it < 400; it++) {
+const x = G.map(row => row.reduce((s, g, k) => s + g * w[k], 0));
+const n = Math.sqrt(x.reduce((a, y) => a + y * y, 0));
+if (n < 1e-14) break;
+w = x.map(y => y / n);
+}
+const Gw = G.map(row => row.reduce((s, g, k) => s + g * w[k], 0));
+const lam = w.reduce((s, x, k) => s + x * Gw[k], 0);
+const Mw = M.map(row => row.reduce((s, m, k) => s + m * w[k], 0));
+const nu = Math.sqrt(Mw.reduce((a, y) => a + y * y, 0)) || 1;
+const u = Mw.map(y => y / nu);
+const approx = [];
+for (let i = 0; i < 4; i++) for (let j = 0; j < 4; j++) approx.push(u[i] * w[j]);
+return { fid: Math.min(1, lam), approx: approx };
+}
+analyze(key, mix) {
+const v = this.vec(key, mix);
+const lv = this.levelCounts(v);
+const a = this.accordion(v);
+return { v: v, lv: lv, total: lv.reduce((x, y) => x + y, 0), fid: a.fid, approx: a.approx };
+}
+renderVals() {
+const s = this.state;
+const f = (x, d) => x.toFixed(d === undefined ? 2 : d).replace('.', ',');
+const list = this.presets();
+const cur = list.find(p => p.key === s.preset);
+const an = this.analyze(s.preset, s.mix);
+const acc = [1, 2, 1, 2];
+const rep = n => new Array(n).fill(0);
+const levels = [0, 1, 2, 3].map(i => ({
+name: 'q' + (i + 1),
+exact: rep(an.lv[i]), acc: rep(acc[i]),
+nExact: an.lv[i], nAcc: acc[i],
+color: an.lv[i] > acc[i] ? '#F5B83D' : '#9B87F5'
+}));
+const fitMsg = an.fid > 0.9999
+? 'Cabe sin pérdida: el Accordion reproduce este estado exactamente.'
+: (an.fid > 0.9 ? 'Casi cabe: se pierde una parte pequeña del entrelazamiento.' : 'No cabe: el Accordion solo alcanza una parte del estado. Falta entrelazamiento entre los bloques (q1,q2) y (q3,q4).');
+const rows = an.v.map((x, i) => {
+const bits = [(i >> 3) & 1, (i >> 2) & 1, (i >> 1) & 1, i & 1].join('');
+const tp = x * x, ap = an.approx[i] * an.approx[i];
+return { lab: bits, tw: (tp * 100).toFixed(1) + '%', aw: (ap * 100).toFixed(1) + '%', tp: f(tp, 3), ap: f(ap, 3) };
+});
+const table = list.map(p => {
+const a = this.analyze(p.key, s.mix);
+return { name: p.name, nodes: a.total, fid: f(a.fid, 3), bg: p.key === s.preset ? '#2C2370' : '#1A1639' };
+});
+const opts = [
+{ key: 'a', text: '1,00: cabe exacto' },
+{ key: 'b', text: '0,50' },
+{ key: 'c', text: '0,25' }
+].map(o => ({
+text: o.text,
+border: s.pick === o.key ? (o.key === 'b' ? '#5EE0C4' : '#FF8A75') : '#14112B',
+bg: s.pick === o.key ? '#14112B' : '#4A35B8',
+pick: () => this.setState({ pick: o.key, preset: 'ghz' })
+}));
+const ans = {
+a: { v: 'No cabe.', t: 'El GHZ une los cuatro qubits con una sola correlación. Un nivel con un único nodo parte el estado en dos bloques independientes, y eso no puede reproducir |0000⟩ + |1111⟩.' },
+b: { v: 'Correcto.', t: 'El mejor Accordion se queda con la mitad: reproduce |00⟩⊗|00⟩ o |11⟩⊗|11⟩, pero no la superposición. El estado de abajo ya está en GHZ; mira las barras.' },
+c: { v: 'Más de lo que crees.', t: 'La mejor aproximación es mejor que eso: alcanza 0,50. Mira las barras del estado GHZ en la sección 3.' }
+};
+return {
+options: opts,
+answered: s.pick !== null,
+verdict: s.pick ? ans[s.pick].v : '',
+feedback: s.pick ? ans[s.pick].t : '',
+presetButtons: list.map(p => ({
+name: p.name,
+border: s.preset === p.key ? '#F5B83D' : '#3A3270',
+bg: s.preset === p.key ? '#2C2370' : '#14112B',
+pick: () => this.setState({ preset: p.key })
+})),
+pName: cur.name, pDesc: cur.desc,
+showMix: s.preset === 'mix',
+mixVal: s.mix, mixText: f(s.mix),
+setMix: e => { const x = parseFloat(e.target.value); if (!isNaN(x)) this.setState({ mix: x }); },
+levels: levels,
+totalExact: an.total,
+fidText: f(an.fid, 3),
+fidBar: (an.fid * 100).toFixed(1) + '%',
+fitMsg: fitMsg,
+rows: rows,
+table: table
+};
+}
+}
+</script>
+</body>
+</html>
