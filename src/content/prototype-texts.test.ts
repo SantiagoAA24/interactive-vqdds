@@ -3,6 +3,7 @@ import { resolve } from 'node:path'
 import { describe, expect, it } from 'vitest'
 import { homeFooter } from './home'
 import { module1Page } from './module1'
+import { module2Page } from './module2'
 import { paperPage } from './paper'
 
 const ROOT = resolve(process.cwd())
@@ -61,6 +62,7 @@ function collectCorpus(): string {
     'src/pages/Home.tsx',
     'src/pages/Paper.tsx',
     'src/pages/Module1.tsx',
+    'src/pages/Module2.tsx',
     'src/layout/Nav.tsx',
     'src/layout/ModulePager.tsx',
   ]) {
@@ -74,6 +76,7 @@ function collectCorpus(): string {
     ` / ${paperPage.breadcrumbCurrent}`,
     `/${paperPage.breadcrumbCurrent}`,
     ` / ${module1Page.breadcrumbCurrent}`,
+    ` / ${module2Page.breadcrumbCurrent}`,
     'Amplitud de | ⟩ = producto del camino',
     'módulo = → probabilidad =',
     'módulo · fase',
@@ -81,6 +84,9 @@ function collectCorpus(): string {
     'q1 =',
     'q2 =',
     'q3 =',
+    'Exacto: nodos · Accordion: nodos',
+    'Exacto: nodos · Accordion: 6 nodos',
+    'F =',
   )
 
   return parts.join('\n')
@@ -93,6 +99,7 @@ describe('prototype visible texts', () => {
     ['docs/prototypes/Main.dc.html'],
     ['docs/prototypes/Paper.dc.html'],
     ['docs/prototypes/Modulo-1.dc.html'],
+    ['docs/prototypes/Modulo-2.dc.html'],
   ] as const)('keeps every visible text from %s in content or pages', (prototypePath) => {
     const html = readUtf8(prototypePath)
     const texts = extractVisibleTexts(html)

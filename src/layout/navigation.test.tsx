@@ -23,7 +23,7 @@ describe('navigation and routes', () => {
   it.each([
     ['/', 'Entiende cómo un grafo guarda un estado cuántico'],
     ['/modulo-1', 'Lee un estado en el diagrama'],
-    ['/modulo-2', 'Módulo 2'],
+    ['/modulo-2', '¿Qué estados caben en un diagrama?'],
     ['/modulo-3', 'Módulo 3'],
     [
       '/paper',

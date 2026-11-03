@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Button, TextLink } from '../components/Button'
 import { Chip } from '../components/Chip'
+import { LevelDots } from '../components/LevelDots'
 import { ModuleCard } from '../components/ModuleCard'
 import { NodeDiagram } from '../components/NodeDiagram'
 import { Panel } from '../components/Panel'
@@ -209,6 +210,29 @@ export default function Components() {
           <StatTile label="Energía actual" value="−4,533" />
           <StatTile label="Energía exacta" value="−4,759" />
           <StatTile label="Error" value="0,2260" accent />
+        </div>
+      </section>
+
+      <section style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-24)' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-8)' }}>
+          <p className="eyebrow">Datos</p>
+          <h2 className="h2">LevelDots</h2>
+        </div>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 'var(--space-16)',
+          }}
+        >
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--space-12)', alignItems: 'center' }}>
+            <LevelDots count={2} tone="violet" />
+            <span className="value">2</span>
+          </div>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--space-12)', alignItems: 'center' }}>
+            <LevelDots count={3} tone="accent" />
+            <span className="value">3</span>
+          </div>
         </div>
       </section>
 
