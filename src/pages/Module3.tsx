@@ -1,9 +1,12 @@
 import { ModulePager } from '../layout/ModulePager'
 import { PageShell } from '../layout/PageShell'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
+import { useTrainer } from '../hooks/useTrainer'
 
 export default function Module3() {
   useDocumentTitle('Módulo 3 · Diagramas de decisión')
+  // Mount trainer so Vite packs train.worker.ts (UI arrives in 8C).
+  useTrainer()
 
   return (
     <PageShell
