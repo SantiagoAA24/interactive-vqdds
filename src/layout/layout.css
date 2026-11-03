@@ -1,0 +1,129 @@
+.dd-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+.dd-container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--space-32);
+  box-sizing: border-box;
+}
+
+.dd-header {
+  display: flex;
+  justify-content: center;
+}
+
+.dd-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-16) var(--space-32);
+  padding-block: var(--space-28);
+}
+
+.dd-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.dd-brand:focus-visible,
+.dd-nav-link:focus-visible,
+.dd-pager-link:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.dd-brand-mark {
+  flex-shrink: 0;
+  width: var(--space-32);
+  height: var(--space-32);
+}
+
+.dd-nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8) var(--space-28);
+}
+
+.dd-nav-link {
+  color: var(--ink-muted);
+  text-decoration: none;
+}
+
+.dd-nav-link:hover {
+  color: var(--accent);
+}
+
+.dd-nav-link--active {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.dd-main {
+  flex: 1 1 auto;
+}
+
+.dd-main-inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-20);
+  padding-block: var(--space-32) 0;
+}
+
+.dd-footer {
+  display: flex;
+  justify-content: center;
+  padding: var(--space-96) var(--space-32) var(--space-64);
+}
+
+.dd-footer-inner {
+  width: 100%;
+  max-width: var(--container);
+  box-sizing: border-box;
+  border-top: 1px solid var(--border);
+  padding-top: var(--space-32);
+}
+
+.dd-pager {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-20) var(--space-32);
+}
+
+.dd-pager-note {
+  flex: 1 1 auto;
+  margin: 0;
+  color: var(--ink-muted);
+  text-align: center;
+}
+
+.dd-pager-link {
+  font-weight: 600;
+  color: var(--ink-muted);
+  text-decoration: none;
+}
+
+.dd-pager-link:hover {
+  color: var(--accent);
+}
+
+.dd-pager-link--next {
+  color: var(--accent);
+}
+
+.dd-pager-spacer {
+  min-width: var(--space-48);
+}
