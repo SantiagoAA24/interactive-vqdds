@@ -4,6 +4,7 @@ import { describe, expect, it } from 'vitest'
 
 const LIB_ROOT = join(process.cwd(), 'src/lib')
 const REACT_IMPORT = /from\s+['"]react(?:\/[^'"]*)?['"]/
+const MATH_RANDOM = /\bMath\.random\b/
 
 function listFiles(dir: string): string[] {
   const entries = readdirSync(dir)
@@ -19,12 +20,23 @@ function listFiles(dir: string): string[] {
   return files
 }
 
-describe('src/lib has no React imports', () => {
+describe('src/lib production constraints', () => {
   it('does not import react from any production file under src/lib', () => {
     const offenders: string[] = []
     for (const file of listFiles(LIB_ROOT)) {
       const source = readFileSync(file, 'utf8')
       if (REACT_IMPORT.test(source)) {
+        offenders.push(relative(process.cwd(), file))
+      }
+    }
+    expect(offenders).toEqual([])
+  })
+
+  it('does not use Math.random in any production file under src/lib', () => {
+    const offenders: string[] = []
+    for (const file of listFiles(LIB_ROOT)) {
+      const source = readFileSync(file, 'utf8')
+      if (MATH_RANDOM.test(source)) {
         offenders.push(relative(process.cwd(), file))
       }
     }
