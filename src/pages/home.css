@@ -1,0 +1,200 @@
+.home-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-96);
+  padding-bottom: var(--space-32);
+}
+
+.home-hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-48);
+}
+
+.home-hero-copy {
+  flex: 1 1 480px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-28);
+}
+
+.home-hero-copy .eyebrow {
+  margin: 0;
+  text-transform: uppercase;
+  color: var(--violet);
+}
+
+.home-hero-copy .h1 {
+  margin: 0;
+  text-wrap: balance;
+}
+
+.home-hero-copy .lead {
+  margin: 0;
+  max-width: 560px;
+  color: var(--ink-muted);
+}
+
+.home-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-16);
+}
+
+.home-hero-visual {
+  flex: 1 1 400px;
+  display: flex;
+  justify-content: center;
+}
+
+.home-hero-visual svg {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  display: block;
+}
+
+.home-guide {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-24) var(--space-48);
+}
+
+.home-guide .dd-eyebrow {
+  flex: 0 0 auto;
+}
+
+.home-guide .dd-question {
+  flex: 1 1 480px;
+}
+
+.home-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-48);
+}
+
+.home-section-intro {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  max-width: 680px;
+}
+
+.home-section-intro .h2,
+.home-section .h2 {
+  margin: 0;
+}
+
+.home-section-intro .lead {
+  margin: 0;
+  color: var(--ink-muted);
+}
+
+.home-modules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
+  gap: var(--space-24);
+}
+
+.home-modules-grid .dd-module {
+  height: 100%;
+}
+
+.home-module-media {
+  background: var(--surface-deep);
+  border-radius: var(--radius-lg);
+  padding: var(--space-16);
+  display: flex;
+  justify-content: center;
+}
+
+.home-module-media svg {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  display: block;
+}
+
+.home-module-prompt {
+  margin: 0;
+  font-style: italic;
+  color: var(--ink);
+  border-top: 1px solid var(--border);
+  padding-top: var(--space-20);
+}
+
+.home-modules-grid .dd-link {
+  margin-top: auto;
+}
+
+.home-howto-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  gap: var(--space-48);
+}
+
+.home-howto-step {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  border-top: 3px solid var(--accent);
+  padding-top: var(--space-24);
+}
+
+.home-howto-step--violet {
+  border-top-color: var(--violet);
+}
+
+.home-howto-number {
+  margin: 0;
+  line-height: 1;
+  color: var(--accent);
+}
+
+.home-howto-step--violet .home-howto-number {
+  color: var(--violet);
+}
+
+.home-howto-step .card-title {
+  margin: 0;
+}
+
+.home-howto-step .body {
+  margin: 0;
+  color: var(--ink-muted);
+}
+
+.home-glossary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+  gap: var(--space-20);
+}
+
+.home-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-24) var(--space-64);
+}
+
+.home-footer p {
+  margin: 0;
+  flex: 1 1 320px;
+  color: var(--ink-muted);
+}
+
+.home-footer a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.home-footer a:hover {
+  text-decoration: underline;
+}
+
+.home-footer a:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}

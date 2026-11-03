@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import { Link } from 'react-router-dom'
 
 type ButtonProps = {
   variant: 'primary' | 'secondary'
@@ -7,17 +8,23 @@ type ButtonProps = {
   disabled?: boolean
   onClick?: () => void
   href?: string
+  to?: string
   className?: string
 }
 
 type TextLinkProps = {
-  href: string
   children: ReactNode
   className?: string
+  href?: string
+  to?: string
 }
 
 function joinClassNames(...parts: Array<string | undefined | false>): string {
   return parts.filter(Boolean).join(' ')
+}
+
+function isExternalHref(href: string): boolean {
+  return /^https?:\/\//i.test(href)
 }
 
 export function Button({
@@ -27,14 +34,29 @@ export function Button({
   disabled,
   onClick,
   href,
+  to,
   className,
 }: ButtonProps) {
   const variantClass = variant === 'primary' ? 'dd-btn--primary' : 'dd-btn--secondary'
   const classes = joinClassNames('dd-btn', variantClass, className)
 
-  if (href !== undefined) {
+  if (to !== undefined) {
     return (
-      <a className={classes} href={href} onClick={onClick}>
+      <Link className={classes} to={to} onClick={onClick}>
+        {children}
+      </Link>
+    )
+  }
+
+  if (href !== undefined) {
+    const external = isExternalHref(href)
+    return (
+      <a
+        className={classes}
+        href={href}
+        onClick={onClick}
+        {...(external ? { target: '_blank', rel: 'noopener' } : {})}
+      >
         {children}
       </a>
     )
@@ -47,9 +69,28 @@ export function Button({
   )
 }
 
-export function TextLink({ href, children, className }: TextLinkProps) {
+export function TextLink({ href, to, children, className }: TextLinkProps) {
+  const classes = joinClassNames('dd-link', className)
+
+  if (to !== undefined) {
+    return (
+      <Link className={classes} to={to}>
+        {children}
+      </Link>
+    )
+  }
+
+  if (href === undefined) {
+    throw new Error('TextLink requires either `to` or `href`')
+  }
+
+  const external = isExternalHref(href)
   return (
-    <a className={joinClassNames('dd-link', className)} href={href}>
+    <a
+      className={classes}
+      href={href}
+      {...(external ? { target: '_blank', rel: 'noopener' } : {})}
+    >
       {children}
     </a>
   )

@@ -21,11 +21,14 @@ function primaryNav() {
 
 describe('navigation and routes', () => {
   it.each([
-    ['/', 'Inicio'],
+    ['/', 'Entiende cómo un grafo guarda un estado cuántico'],
     ['/modulo-1', 'Módulo 1'],
     ['/modulo-2', 'Módulo 2'],
     ['/modulo-3', 'Módulo 3'],
-    ['/paper', 'Paper'],
+    [
+      '/paper',
+      'Variational decision diagrams for quantum-inspired machine learning applications',
+    ],
   ] as const)('renders %s with heading %s', (path, heading) => {
     renderAt(path)
     expect(screen.getByRole('heading', { level: 1, name: heading })).toBeTruthy()
