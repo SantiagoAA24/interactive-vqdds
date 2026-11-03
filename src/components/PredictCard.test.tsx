@@ -30,6 +30,7 @@ describe('PredictCard', () => {
       name: 'Solo las de los caminos que pasan por ese nodo',
     })
     expect(correct.getAttribute('data-state')).toBe('correct')
+    expect(correct.getAttribute('aria-pressed')).toBe('true')
     unmount()
   })
 
@@ -52,6 +53,8 @@ describe('PredictCard', () => {
     expect(getByText('No siempre.')).toBeTruthy()
     const wrong = getByRole('button', { name: 'Las ocho, siempre' })
     expect(wrong.getAttribute('data-state')).toBe('wrong')
+    expect(wrong.getAttribute('aria-pressed')).toBe('true')
     unmount()
   })
 })
+

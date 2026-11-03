@@ -224,6 +224,11 @@ describe('Module3 page', () => {
     expect(live?.textContent).toContain(module3PredictFeedback.c.detail)
   })
 
+  it('announces training status with aria-live polite', () => {
+    render(<FakeModule3 />)
+    expect(statusEl().getAttribute('aria-live')).toBe('polite')
+  })
+
   it('gives every interactive control an accessible name', () => {
     render(<FakeModule3 />)
 

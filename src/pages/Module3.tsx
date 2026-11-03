@@ -265,7 +265,7 @@ export default function Module3({ trainer: trainerProp }: Module3Props) {
                 />
               </div>
 
-              <p className="m3-status" data-testid="m3-status">
+              <p className="m3-status" data-testid="m3-status" aria-live="polite">
                 {status}
               </p>
             </Panel>

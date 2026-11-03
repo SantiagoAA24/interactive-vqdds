@@ -71,20 +71,26 @@ export default function Paper() {
             {paperPage.comparisonHeading}
           </h2>
           <Panel>
-            <div className="paper-table">
-              <div className="paper-table-head eyebrow" role="row">
-                <span>{paperPage.comparisonColumns.topic}</span>
-                <span>{paperPage.comparisonColumns.paper}</span>
-                <span>{paperPage.comparisonColumns.demo}</span>
-              </div>
-              {paperComparisonRows.map((row) => (
-                <div key={row.topic} className="paper-table-row body" role="row">
-                  <span className="paper-table-topic">{row.topic}</span>
-                  <span className="paper-table-paper">{row.paper}</span>
-                  <span className="paper-table-demo">{row.demo}</span>
-                </div>
-              ))}
-            </div>
+            <table className="paper-table">
+              <thead>
+                <tr className="paper-table-head eyebrow">
+                  <th scope="col">{paperPage.comparisonColumns.topic}</th>
+                  <th scope="col">{paperPage.comparisonColumns.paper}</th>
+                  <th scope="col">{paperPage.comparisonColumns.demo}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {paperComparisonRows.map((row) => (
+                  <tr key={row.topic} className="paper-table-row body">
+                    <th scope="row" className="paper-table-topic">
+                      {row.topic}
+                    </th>
+                    <td className="paper-table-paper">{row.paper}</td>
+                    <td className="paper-table-demo">{row.demo}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </Panel>
         </section>
 

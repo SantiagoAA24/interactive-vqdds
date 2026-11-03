@@ -54,6 +54,7 @@ export function PredictCard({
               type="button"
               className="dd-option"
               data-state={state}
+              aria-pressed={selectedId === option.id}
               onClick={() => onSelect(option.id)}
             >
               {option.label}

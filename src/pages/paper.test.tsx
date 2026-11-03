@@ -27,12 +27,18 @@ describe('Paper page', () => {
       }),
     ).toBeTruthy()
 
+    expect(screen.getByRole('table')).toBeTruthy()
+    expect(
+      screen.getByRole('columnheader', { name: paperPage.comparisonColumns.topic }),
+    ).toBeTruthy()
+
     for (const row of paperComparisonRows) {
-      expect(screen.getByText(row.topic)).toBeTruthy()
+      expect(screen.getByRole('rowheader', { name: row.topic })).toBeTruthy()
       expect(screen.getByText(row.paper)).toBeTruthy()
       expect(screen.getByText(row.demo)).toBeTruthy()
     }
   })
+
 
   it('opens external arXiv links in a new tab with rel=noopener', () => {
     renderPaper()
