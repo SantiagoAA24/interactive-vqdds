@@ -22,7 +22,7 @@ function primaryNav() {
 describe('navigation and routes', () => {
   it.each([
     ['/', 'Entiende cómo un grafo guarda un estado cuántico'],
-    ['/modulo-1', 'Módulo 1'],
+    ['/modulo-1', 'Lee un estado en el diagrama'],
     ['/modulo-2', 'Módulo 2'],
     ['/modulo-3', 'Módulo 3'],
     [

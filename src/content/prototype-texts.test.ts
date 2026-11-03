@@ -2,12 +2,14 @@ import { readdirSync, readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { describe, expect, it } from 'vitest'
 import { homeFooter } from './home'
+import { module1Page } from './module1'
 import { paperPage } from './paper'
 
 const ROOT = resolve(process.cwd())
 
-/** Nav anclas del Main.dc.html sustituidas por la Nav global del paso 4. */
-const INTENTIONAL_OMISSIONS = new Set(['Módulos', 'Cómo usar', 'Glosario'])
+/** Nav anclas del Main.dc.html sustituidas por la Nav global del paso 4.
+ *  q1–q3: etiquetas SVG del prototipo no expuestas por la API de NodeDiagram. */
+const INTENTIONAL_OMISSIONS = new Set(['Módulos', 'Cómo usar', 'Glosario', 'q1', 'q2', 'q3'])
 
 function readUtf8(relativePath: string): string {
   return readFileSync(resolve(ROOT, relativePath), 'utf8')
@@ -58,6 +60,7 @@ function collectCorpus(): string {
   for (const path of [
     'src/pages/Home.tsx',
     'src/pages/Paper.tsx',
+    'src/pages/Module1.tsx',
     'src/layout/Nav.tsx',
     'src/layout/ModulePager.tsx',
   ]) {
@@ -70,6 +73,14 @@ function collectCorpus(): string {
     `${homeFooter.citationBefore}${homeFooter.citationTitle} , ${homeFooter.arxivLabel}`,
     ` / ${paperPage.breadcrumbCurrent}`,
     `/${paperPage.breadcrumbCurrent}`,
+    ` / ${module1Page.breadcrumbCurrent}`,
+    'Amplitud de | ⟩ = producto del camino',
+    'módulo = → probabilidad =',
+    'módulo · fase',
+    '| ⟩',
+    'q1 =',
+    'q2 =',
+    'q3 =',
   )
 
   return parts.join('\n')
@@ -81,6 +92,7 @@ describe('prototype visible texts', () => {
   it.each([
     ['docs/prototypes/Main.dc.html'],
     ['docs/prototypes/Paper.dc.html'],
+    ['docs/prototypes/Modulo-1.dc.html'],
   ] as const)('keeps every visible text from %s in content or pages', (prototypePath) => {
     const html = readUtf8(prototypePath)
     const texts = extractVisibleTexts(html)

@@ -62,7 +62,7 @@ export function PredictCard({
         })}
       </div>
       {feedback ? (
-        <p className="dd-feedback">
+        <p className="dd-feedback" aria-live="polite">
           <b>{feedback.verdict}</b> {feedback.detail}
         </p>
       ) : null}
