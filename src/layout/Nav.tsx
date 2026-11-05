@@ -50,7 +50,7 @@ export function Nav() {
       <div className="dd-container dd-nav">
         <Link to="/" className="dd-brand">
           <BrandMark />
-          <span className="card-title">Diagramas de decisión</span>
+          <span className="card-title">Diagramas de decisión variacionales</span>
         </Link>
         <nav className="dd-nav-links" aria-label="Navegación principal">
           {NAV_ITEMS.map((item) => (
